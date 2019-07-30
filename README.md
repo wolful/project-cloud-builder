@@ -3,18 +3,21 @@ Cloud build for web. Build a project and download result by a github url.
 
 <img src="https://img.alicdn.com/tfs/TB1dkkQboGF3KVjSZFmXXbqPXXa-600-499.gif" width="600" />
 
-
-## Install
-
-`git clone https://github.com/wolful/project-cloud-builder.git`
-
 ## Usage
 
-Clone this repo in your local or remote server, then install the dependencies. You can build project by github url after start server.
+If you want replay it, please install it like below.
 
 ```
-npm install
-node index.js
+git clone https://github.com/wolful/project-cloud-builder.git
+docker build -t yourname/yourRepoName:v1
+docker run -d -p 8090:8090 $imagesId
+```
+
+If you just want use it for building,
+
+```
+docker pull wolfulfl/web-build:1.0.4
+docker run -d -p 8090:8090 $imagesId
 ```
 
 > Notes: Docker required in your environment, please install it before start.
