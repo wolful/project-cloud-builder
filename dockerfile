@@ -1,25 +1,18 @@
-FROM ubuntu:15.10
-FROM node
+FROM alpine:3.7
+FROM node:8.10.0-alpine
 
-RUN apt-get update \ 
-  && apt-get install -y git \
-  && apt-get install -y zip \
-  && mkdir -p /home/Service 
+RUN  apk add --no-cache git \
+  && apk add  --no-cache zip \
+  && mkdir -p /home/Service
 
 WORKDIR /home/Service
 
 COPY . /home/Service
 
-ARG URL
-ARG REPONAME
+RUN npm config set registry https://registry.npm.taobao.org \
+  && npm install \
+  && npm run build 
 
-RUN git clone $URL;
+EXPOSE 8090
 
-ENV DIRPATH /home/Service
-ENV DIRNAME $REPONAME
-
-WORKDIR $DIRPATH/$DIRNAME
-
-RUN npm install --registry=https://registry.npm.taobao.org && npm run build && zip -r build.zip ./dist/ 
-
-CMD [ "zip", "-r", "src.zip", "./src/"]
+CMD ["npm", "start"]

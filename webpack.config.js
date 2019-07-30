@@ -1,8 +1,14 @@
 const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const ReplaceInFileWebpackPlugin = require('replace-in-file-webpack-plugin');
+let ip = '0.0.0.0';
+
+//const execSync = require('child_process').execSync;
+//ip = execSync('curl ifconfig.me');
+
 module.exports = {
   mode: 'production',
-  entry: './views/index.js',
+  entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist/'),
     filename: 'bundle.js'
@@ -11,7 +17,7 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-	      exclude: /(node_modules|bower_component)/,
+	exclude: /(node_modules|bower_component)/,
         use:{ 
           loader: 'babel-loader',
           options: {
@@ -28,4 +34,14 @@ module.exports = {
   optimization: {
     minimizer: [new UglifyJsPlugin()],
   },
+  plugins: [
+    new ReplaceInFileWebpackPlugin([{
+      dir: 'dist/',
+      test: /\.js$/,
+      rules: [{
+        search: /yourdomain/ig,
+        replace: `${ip}:8090`
+      }]
+    }])
+  ]
 };
