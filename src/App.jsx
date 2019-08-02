@@ -4,9 +4,9 @@ import { Terminal } from 'xterm';
 
 var xterm = new Terminal({
   cols: 100,
-  rows: 35,
+  rows: 135,
   cursorBlink: 5,
-  scrollback: 30,
+  scrollback: 300,
   tabStopWidth: 2,
   rendererType: 'dom'
 });
