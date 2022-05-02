@@ -19,7 +19,7 @@ export default class extends React.Component {
   componentDidMount() {
     xterm.open(document.getElementById('term'));
     setTimeout(() => {
-//      ws.send('component did mount');
+      // ws.send('component did mount');
       ws.push(this.onReceiveWsMessage);
     }, 3000);
   }
@@ -43,8 +43,8 @@ export default class extends React.Component {
   render() {
     return (
       <div>
-	<input onInput={this.onInput} className="input" />
-        <button onClick={this.onSubmit} className="submit-btn">确定</button>
+	      <input onInput={this.onInput} className="input" />
+        <button onClick={this.onSubmit} className="submit-btn">开始构建</button>
         <div id="term"></div>
       </div>
     );

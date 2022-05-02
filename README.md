@@ -22,4 +22,7 @@ docker run -d -p 8090:8090 $imagesId
 
 > Notes: Docker required in your environment, please install it before start.
 
+## Debug
+Use `npm start` start server, and visit to `127.0.0.1:8090`
+
 [中文介绍](https://www.wisewufu.com/2019/06/09/cloud-build-base/)
