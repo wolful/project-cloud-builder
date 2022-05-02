@@ -34,7 +34,7 @@ export default class extends React.Component {
   }
 
   onReceiveWsMessage = (message) => {
-    console.log('fe receive message', message);
+    console.log('Page receive message', message);
     // document.getElementById('code').textContent += message + '\n';
     xterm.write(message.replace(/\n/g, '\n\r'));
     xterm.write('\n\r');
