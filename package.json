@@ -23,8 +23,8 @@
     "koa-static": "^5.0.0",
     "koa-websocket": "^6.0.0",
     "koa-wss": "^1.0.3",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "string-hash": "^1.1.3",
     "ws": "^6.2.1",
     "xterm": "^3.14.1"
