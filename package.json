@@ -15,7 +15,7 @@
   "author": "wufu",
   "license": "ISC",
   "dependencies": {
-    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-env": "^7.20.2",
     "koa": "^2.7.0",
     "koa-compress": "^3.0.0",
     "koa-route": "^3.2.0",
